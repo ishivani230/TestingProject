@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import { DocumentBuilder } from '@nestjs/swagger/dist/document-builder';
 
 
 
@@ -12,12 +11,7 @@ async function bootstrap() {
   app.setGlobalPrefix('/api/v1/test');
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.enableCors();
-  const config = new DocumentBuilder() 
-    .setTitle('test API Application')
-    .setDescription("Handle test Services")
-    .setVersion('v1')
-    .addTag('test')
-    .build();
+ 
    
     console.log("Server running at port",port)
   await app.listen(port || 5082);
