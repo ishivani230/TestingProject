@@ -8,6 +8,7 @@ export class EmployeeController {
    constructor(private readonly employeeService: EmployeeService) { }
 
  //insert the data using post method 
+ // API Path => http://localhost:5082/api/v1/test/employee
    @Post()
    async createEmployee(@Body() createEmployeeDto: EmployeeDto): Promise<any> {
       const createContactData = await this.employeeService.createEmpData(createEmployeeDto);
@@ -18,7 +19,6 @@ export class EmployeeController {
          data: createContactData
       };
    }
-
 }
 
 
